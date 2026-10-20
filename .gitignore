@@ -1,0 +1,7 @@
+.DS_Store
+node_modules
+dist/
+*.tsbuildinfo
+.env.local
+# Written by `pnpm firmware:local` from a dojosha build. Not committed, so CI never deploys it.
+public/local/

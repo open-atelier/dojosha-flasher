@@ -1,0 +1,37 @@
+{
+  "name": "dojosha-flasher",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Dōjōsha flasher: installs the Dōjōsha firmware on an ESP32-S3 from the browser",
+  "license": "AGPL-3.0-only",
+  "packageManager": "pnpm@12.14.0",
+  "scripts": {
+    "dev": "vite",
+    "dev:local": "VITE_FIRMWARE_SOURCE=local vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "firmware:local": "node scripts/local-firmware.ts"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "5.104.4",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "esp-web-tools": "10.4.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "tailwind-merge": "3.7.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.3.3",
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/w3c-web-serial": "1.0.8",
+    "@vitejs/plugin-react": "6.1.2",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3",
+    "vite": "8.3.4"
+  }
+}

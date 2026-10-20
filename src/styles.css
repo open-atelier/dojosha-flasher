@@ -1,0 +1,151 @@
+@import 'tailwindcss';
+
+/*
+ * The teenage engineering direction, the same as the device UI (dojosha: src/ui/theme.h and web/src/styles.css):
+ * one true-black field, hairline rules, 2 px corners, uppercase letterspaced legends,
+ * exact numbers in a fixed-width readout, colour only as an index, no shadows, no animation.
+ *
+ * First Operator sets all silkscreen text; Second Operator sets every number.
+ * Both faces lack _ @ & ~ ^ ` { } … and ō: the browser fills those from the fallback.
+ */
+
+@font-face {
+  font-family: 'First Operator';
+  src: url('../fonts/FirstOperator-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'First Operator';
+  src: url('../fonts/FirstOperator-Black.otf') format('opentype');
+  font-weight: 900;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Second Operator';
+  src: url('../fonts/SecondOperator-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-display: block;
+}
+
+@theme {
+  --font-sans: 'First Operator', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Second Operator', ui-monospace, monospace;
+
+  /* Body: the printed panel */
+  --color-ink: #000000;
+  --color-rule: #2a2a2e;
+  --color-edge: #3a3a40;
+
+  /* Silkscreen: labels and values */
+  --color-silk: #e6e6e3;
+  --color-silk-dim: #8c8c90;
+  --color-silk-off: #55555a;
+
+  /* Index accents: one colour per parameter family, never decorative */
+  --color-acc-sound: #ff7a18;
+  --color-acc-image: #3c6fe0;
+  --color-acc-white: #f2f2ef;
+
+  /* Signals: only these three meanings */
+  --color-sig-rec: #e5322b;
+  --color-sig-warn: #f5d142;
+  --color-sig-ok: #23b87a;
+
+  --radius-xs: 2px;
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 2px;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-rule);
+  }
+  html {
+    color-scheme: dark;
+  }
+  body {
+    background: var(--color-ink);
+    color: var(--color-silk);
+    font-family: var(--font-sans);
+    font-weight: 700;
+    -webkit-tap-highlight-color: transparent;
+  }
+  :focus-visible {
+    outline: 1px solid var(--color-silk);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Panel labels: small, uppercase, letterspaced */
+  .te-legend {
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-silk-dim);
+  }
+  /* Names and words on a key */
+  .te-value {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-silk);
+  }
+  /* Numbers: fixed cell width, padded by the caller */
+  .te-readout {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0;
+  }
+  /*
+   * Text that must be typed back exactly (the Wi–Fi name and password). Both Operator faces
+   * are unicase, so they cannot show the case of a letter: use the system monospace instead.
+   */
+  .te-literal {
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  /* The device mark */
+  .te-mark {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-silk);
+  }
+  /*
+   * A macron drawn over a letter, because the Operator faces have no ō. The bar stops short
+   * of the letter-spacing that follows the glyph.
+   */
+  .te-macron {
+    position: relative;
+    display: inline-block;
+  }
+  .te-macron::before {
+    content: '';
+    position: absolute;
+    top: 0.08em;
+    left: 0em;
+    right: calc(0.08em + 0.2em);
+    height: 0.06em;
+    background: currentColor;
+  }
+  /* Running text */
+  .te-prose {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    color: var(--color-silk-dim);
+  }
+}
