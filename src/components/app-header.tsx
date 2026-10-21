@@ -1,10 +1,19 @@
 import { cn } from '@/lib/utils'
 
-/** The Dōjōsha mark, with the macrons the Operator faces do not have. */
+/** The name Dōjōsha, with the macrons the Operator faces do not have. Inherits the text class around it. */
+export function Dojosha() {
+  return (
+    <span aria-label="Dōjōsha">
+      D<span className="te-macron">o</span>j<span className="te-macron">o</span>sha
+    </span>
+  )
+}
+
+/** The Dōjōsha mark. */
 export function Mark() {
   return (
-    <span className="te-mark" aria-label="Dōjōsha">
-      D<span className="te-macron">o</span>j<span className="te-macron">o</span>sha
+    <span className="te-mark">
+      <Dojosha />
     </span>
   )
 }

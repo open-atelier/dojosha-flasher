@@ -1,3 +1,4 @@
+import { Dojosha } from '@/components/app-header'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Glyph } from '@/components/ui/glyph'
@@ -72,7 +73,7 @@ export function FirmwarePicker({
           </Alert>
         ) : null}
         {!loading && !error && releases.length === 0 ? (
-          <p className="te-legend py-2 text-silk-off">No release has a Dōjōsha image yet.</p>
+          <p className="te-legend py-2 text-silk-off">No release has a <Dojosha /> image yet.</p>
         ) : null}
 
         {releases.length > 0 ? (

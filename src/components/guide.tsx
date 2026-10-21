@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { Dojosha } from '@/components/app-header'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Glyph } from '@/components/ui/glyph'
@@ -24,7 +25,7 @@ export function UnsupportedBrowser() {
  */
 export function NextSteps() {
   const steps = [
-    <>The board restarts and shows the Dōjōsha screen.</>,
+    <>The board restarts and shows the <Dojosha /> screen.</>,
     <>
       On a phone or computer, join the Wi–Fi network <code className="te-literal text-silk">Dojosha</code> with the
       password <code className="te-literal text-silk">dojosha123</code>. An update keeps the name and password you set.
@@ -117,7 +118,7 @@ export function Footer() {
   return (
     <footer className="te-prose flex flex-col gap-1 border-t pt-3">
       <p>
-        Dōjōsha is open source, under the AGPL–3.0.{' '}
+        <Dojosha /> is open source, under the AGPL–3.0.{' '}
         <a href={config.sourceUrl} target="_blank" rel="noreferrer" className="text-silk underline underline-offset-2">
           Source
         </a>

@@ -86,7 +86,8 @@
   .te-legend {
     font-size: 12px;
     font-weight: 900;
-    letter-spacing: 0.14em;
+    --tracking: 0.14em;
+    letter-spacing: var(--tracking);
     text-transform: uppercase;
     color: var(--color-silk-dim);
   }
@@ -119,13 +120,14 @@
   .te-mark {
     font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.2em;
+    --tracking: 0.2em;
+    letter-spacing: var(--tracking);
     text-transform: uppercase;
     color: var(--color-silk);
   }
   /*
    * A macron drawn over a letter, because the Operator faces have no ō. The bar stops short
-   * of the letter-spacing that follows the glyph.
+   * of the letter-spacing that follows the glyph: --tracking, set by the text class around it.
    */
   .te-macron {
     position: relative;
@@ -136,7 +138,7 @@
     position: absolute;
     top: 0.08em;
     left: 0em;
-    right: calc(0.08em + 0.2em);
+    right: calc(0.08em + var(--tracking, 0em));
     height: 0.06em;
     background: currentColor;
   }
@@ -144,7 +146,8 @@
   .te-prose {
     font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.04em;
+    --tracking: 0.04em;
+    letter-spacing: var(--tracking);
     line-height: 1.5;
     color: var(--color-silk-dim);
   }
